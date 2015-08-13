@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://myNameSpace.com"
+	version="1.0"
+	elementFormDefault="qualified"
+	>
+	<xs:element name="allData" type="data"></xs:element>
+
+	<xs:complexType name="data">
+		<xs:sequence>
+			<xs:element name="coursesList" type="course" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="gradesList" type="grade" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<xs:element name="studentsList" type="student" minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="course">
+		<xs:all>
+			<xs:element name="courseCode" type="xs:string" minOccurs="1"></xs:element>
+			<xs:element name="idCourse" type="xs:nonNegativeInteger" minOccurs="1"></xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="1"></xs:element>
+			<xs:element name="lecturer" type="xs:string" minOccurs="1"></xs:element>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="grade">
+		<xs:all>
+			<xs:element name="idGrade" type="xs:nonNegativeInteger" minOccurs="1"></xs:element>
+			<xs:element name="gradeValue" type="gradeType" minOccurs="1"></xs:element>
+			<xs:element name="idCourse" type="xs:nonNegativeInteger" minOccurs="1"></xs:element>
+			<xs:element name="studentCode" type="xs:nonNegativeInteger" minOccurs="1"></xs:element>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="student">
+		<xs:all>
+			<xs:element name="studentCode" type="xs:nonNegativeInteger" minOccurs="1"></xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="1"></xs:element>
+			<xs:element name="lastName" type="xs:string" minOccurs="1"></xs:element>
+		</xs:all>
+	</xs:complexType>
+
+	<xs:simpleType name="gradeType">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxInclusive value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
