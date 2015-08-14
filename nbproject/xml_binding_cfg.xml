@@ -2,12 +2,13 @@
 <schemas xmlns='http://xml.netbeans.org/schema/JAXBWizConfig' destdir='build/generated-sources/jaxb' projectName='KnowItUniversity' version='1.0'>
 	<schema type='-xmlschema' package='ee.knowituniversity.generated' name='tryBinding'>
 		<xjc-options>
+			<xjc-option name='-npa' value='true'/>
 		</xjc-options>
 		<schema-sources>
 			<schema-source location='xml-resources/jaxb/tryBinding/infoSystemData.xsd' origLocation='infoSystemData.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
-		<catalog location='xml-resources/jaxb/tryBinding/newGradesList.xml' origLocation='newGradesList.xml'/>
+		<catalog/>
 	</schema>
 </schemas>

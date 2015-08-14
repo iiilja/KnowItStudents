@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="file:/D:/University/Veebipohiste%20rak%20arh%20ja%20dis/KnowItUniversity/gradesList.xml" uri="xml-resources/jaxb/bindingName/gradesList.xml"/>
-    <system systemId="file:/D:/University/Veebipohiste%20rak%20arh%20ja%20dis/KnowItUniversity/infoSystemData.xsd" uri="xml-resources/jaxb/tryBinding/infoSystemData.xsd"/>
     <system systemId="file:/D:/University/Veebipohiste%20rak%20arh%20ja%20dis/KnowItUniversity/newGradesList.xml" uri="xml-resources/jaxb/tryBinding/newGradesList.xml"/>
+    <system systemId="file:/D:/University/Veebipohiste%20rak%20arh%20ja%20dis/KnowItUniversity/infoSystemData.xsd" uri="xml-resources/jaxb/tryBinding/infoSystemData.xsd"/>
 </catalog>

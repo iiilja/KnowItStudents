@@ -5,17 +5,16 @@
 	version="1.0"
 	elementFormDefault="qualified"
 	>
-	<xs:element name="allData" type="data"></xs:element>
-
-	<xs:complexType name="data">
+	<xs:element name="allData">
+            <xs:complexType>
 		<xs:sequence>
 			<xs:element name="coursesList" type="course" minOccurs="0" maxOccurs="unbounded">
 			</xs:element>
 			<xs:element name="gradesList" type="grade" minOccurs="0" maxOccurs="unbounded"></xs:element>
 			<xs:element name="studentsList" type="student" minOccurs="0" maxOccurs="unbounded"></xs:element>
 		</xs:sequence>
-	</xs:complexType>
-
+            </xs:complexType>
+        </xs:element>
 	<xs:complexType name="course">
 		<xs:all>
 			<xs:element name="courseCode" type="xs:string" minOccurs="1"></xs:element>

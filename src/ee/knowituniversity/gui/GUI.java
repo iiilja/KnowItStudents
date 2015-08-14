@@ -3,8 +3,6 @@ package ee.knowituniversity.gui;
 import ee.knowituniversity.data.Data;
 import ee.knowituniversity.generated.ObjectFactory;
 import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -16,16 +14,19 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         try {
-            JAXBContext jAXBContext = JAXBContext.newInstance(ObjectFactory.class);
+            JAXBContext jAXBContext = JAXBContext.newInstance(ObjectFactory.class.getPackage().getName());
+//            InputStream stream = getClass().getClassLoader().getResourceAsStream("ee/knowituniversity/files/newGradesList.xml");
+            File file = new File("xml/newGradesList.xml");
             Unmarshaller unmarshaller = jAXBContext.createUnmarshaller();
-            ee.knowituniversity.generated.Data generatedData = (ee.knowituniversity.generated.Data) unmarshaller.unmarshal(new File("newGradesList.xml"));
+            ee.knowituniversity.generated.AllData generatedData = (ee.knowituniversity.generated.AllData) (unmarshaller.unmarshal(file));
             Data data = new Data(generatedData);
             data.generateAverageGrade();
             ainePanel1.setData(data);
             hinnePane1.setData(data);
             tudengiPane1.setData(data);
         } catch (JAXBException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            System.exit(0);
         }
     }
 

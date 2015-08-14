@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:data xmlns:ns2="urn:Test.Namespace">
+<allData xmlns="urn:Test.Namespace">
     <coursesList>
         <courseCode>aaa4199</courseCode>
         <idCourse>1</idCourse>
@@ -1748,4 +1748,4 @@
         <name>Veljo</name>
         <lastName>Kuusk</lastName>
     </studentsList>
-</ns2:data>
+</allData>

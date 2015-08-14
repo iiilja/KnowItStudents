@@ -12,12 +12,13 @@
         <mkdir dir="${build.generated.sources.dir}/jaxb" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
         <mkdir dir="build/generated/jaxbCache" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
         <mkdir dir="build/generated/jaxbCache/tryBinding"/>
-        <xjc package="ee.knowituniversity.generated" destdir="build/generated/jaxbCache/tryBinding" catalog="xml-resources/jaxb/tryBinding/newGradesList.xml">
+        <xjc package="ee.knowituniversity.generated" destdir="build/generated/jaxbCache/tryBinding" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
+            <arg value="-npa"/>
             <schema file="xml-resources/jaxb/tryBinding/infoSystemData.xsd"/>
             <depends file="xml-resources/jaxb/tryBinding/infoSystemData.xsd"/>
             <produces dir="build/generated/jaxbCache/tryBinding"/>

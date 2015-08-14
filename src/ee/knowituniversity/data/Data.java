@@ -14,7 +14,7 @@ public class Data {
 
     private Double average; 
 
-    public Data(ee.knowituniversity.generated.Data data) {
+    public Data(ee.knowituniversity.generated.AllData data) {
         coursesList = new ArrayList<Course>();
         gradesList = new ArrayList<Grade>();
         studentsList = new ArrayList<Student>();
