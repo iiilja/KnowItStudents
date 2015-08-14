@@ -1,17 +1,34 @@
 package ee.knowituniversity.data;
 
 import ee.knowituniversity.exceptions.GradeException;
-import ee.knowituniversity.generated.Student;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "grade", propOrder = {
 
+})
 public class Grade {
 
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "nonNegativeInteger")
     protected BigInteger idGrade;
     protected int gradeValue;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "nonNegativeInteger")
     protected BigInteger idCourse;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "nonNegativeInteger")
     protected BigInteger studentCode;
+    
+    public Grade(){
+        
+    }
 
     public Grade(ee.knowituniversity.generated.Grade grade) {
         setIdCourse(grade.getIdCourse());

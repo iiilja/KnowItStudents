@@ -1,7 +1,6 @@
 package ee.knowituniversity.gui;
 
 import ee.knowituniversity.data.Data;
-import ee.knowituniversity.generated.ObjectFactory;
 import java.io.File;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -14,12 +13,10 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         try {
-            JAXBContext jAXBContext = JAXBContext.newInstance(ObjectFactory.class.getPackage().getName());
-//            InputStream stream = getClass().getClassLoader().getResourceAsStream("ee/knowituniversity/files/newGradesList.xml");
+            JAXBContext jAXBContext = JAXBContext.newInstance(Data.class);
             File file = new File("xml/newGradesList.xml");
             Unmarshaller unmarshaller = jAXBContext.createUnmarshaller();
-            ee.knowituniversity.generated.AllData generatedData = (ee.knowituniversity.generated.AllData) (unmarshaller.unmarshal(file));
-            Data data = new Data(generatedData);
+            Data data = (Data) (unmarshaller.unmarshal(file));
             data.generateAverageGrade();
             ainePanel1.setData(data);
             hinnePane1.setData(data);

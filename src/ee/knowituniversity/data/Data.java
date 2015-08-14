@@ -4,15 +4,31 @@ package ee.knowituniversity.data;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "coursesList",
+    "gradesList",
+    "studentsList"
+})
+@XmlRootElement(name = "allData")
 public class Data {
 
     protected List<Course> coursesList;
     protected List<Grade> gradesList;
     protected List<Student> studentsList;
-
+    
+    @XmlTransient
     private Double average; 
+    
+    public Data(){
+        
+    }
 
     public Data(ee.knowituniversity.generated.AllData data) {
         coursesList = new ArrayList<Course>();

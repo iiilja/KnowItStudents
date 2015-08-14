@@ -1,13 +1,27 @@
 package ee.knowituniversity.data;
 
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "course", propOrder = {
+
+})
 public class Course {
 
-    private String courseCode;
-    private BigInteger idCourse;
-    private String name;
-    private String lecturer;
+    @XmlElement(required = true)
+    protected String courseCode;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "nonNegativeInteger")
+    protected BigInteger idCourse;
+    @XmlElement(required = true)
+    protected String name;
+    @XmlElement(required = true)
+    protected String lecturer;
 
     public Course() {
     }

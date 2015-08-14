@@ -4,22 +4,41 @@ import ee.knowituniversity.exceptions.GradeException;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "student", propOrder = {
 
+})
 public class Student implements Comparable<Student>{
 
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "nonNegativeInteger")
     protected BigInteger studentCode;
+    @XmlElement(required = true)
     protected String name;
+    @XmlElement(required = true)
     protected String lastName;
 
+    @XmlTransient
     private double avg;
+    @XmlTransient
     private int courses;
+    @XmlTransient
     private int total;
     
     private final NumberFormat format = new DecimalFormat("#0.00");
 
-    Student(ee.knowituniversity.generated.Student s) {
+    public Student() {
+    }
+
+    public Student(ee.knowituniversity.generated.Student s) {
         setStudentCode(s.getStudentCode());
         setName(s.getName());
         setLastName(s.getLastName());
