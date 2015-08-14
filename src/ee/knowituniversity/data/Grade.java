@@ -1,5 +1,6 @@
 package ee.knowituniversity.data;
 
+import ee.knowituniversity.exceptions.GradeException;
 import ee.knowituniversity.generated.Student;
 import java.math.BigInteger;
 
@@ -50,6 +51,9 @@ public class Grade {
      * 
      */
     public void setGradeValue(int value) {
+        if (value < 0 || value > 5) {
+            throw new GradeException(value);
+        }
         this.gradeValue = value;
     }
 

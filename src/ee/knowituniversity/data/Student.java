@@ -1,5 +1,6 @@
 package ee.knowituniversity.data;
 
+import ee.knowituniversity.exceptions.GradeException;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -16,12 +17,12 @@ public class Student implements Comparable<Student>{
     private int courses;
     private int total;
     
-    private NumberFormat format = new DecimalFormat("#0.00");
+    private final NumberFormat format = new DecimalFormat("#0.00");
 
     Student(ee.knowituniversity.generated.Student s) {
-        this.studentCode = s.getStudentCode();
-        this.name = s.getName();
-        this.lastName = s.getLastName();
+        setStudentCode(s.getStudentCode());
+        setName(s.getName());
+        setLastName(s.getLastName());
     }
 
     /**
@@ -45,6 +46,9 @@ public class Student implements Comparable<Student>{
      *     
      */
     public void setStudentCode(BigInteger value) {
+        if (value == null || value.compareTo(BigInteger.ZERO) < 0) {
+            throw new IllegalArgumentException("Can be positive only");
+        }
         this.studentCode = value;
     }
 
@@ -120,6 +124,9 @@ public class Student implements Comparable<Student>{
     }
     
     public void addGrade(int grade){
+        if (grade < 0 || grade > 5) {
+            throw new GradeException(grade);
+        }
         total += grade;
         updateAvg();
     }

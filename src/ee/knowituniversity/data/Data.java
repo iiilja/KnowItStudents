@@ -80,10 +80,14 @@ public class Data {
         if (average == null) {
             for (Grade grade : gradesList) {
                 Student student = findStudentByStudentCode(grade.getStudentCode());
-                student.addGrade(grade.getGradeValue());
-                student.addCourses(1);
-                coursesInt ++;
-                gradeInt += grade.getGradeValue();
+                if (student != null) {
+                    student.addGrade(grade.getGradeValue());
+                    student.addCourses(1);
+                    coursesInt ++;
+                    gradeInt += grade.getGradeValue();
+                } else {
+                    // DO nothing with this grade
+                }
             }
         } else {
             for (Student student : studentsList) {

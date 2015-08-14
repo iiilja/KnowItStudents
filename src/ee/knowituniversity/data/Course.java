@@ -4,19 +4,19 @@ import java.math.BigInteger;
 
 public class Course {
 
-    protected String courseCode;
-    protected BigInteger idCourse;
-    protected String name;
-    protected String lecturer;
+    private String courseCode;
+    private BigInteger idCourse;
+    private String name;
+    private String lecturer;
 
     public Course() {
     }
     
     public Course(ee.knowituniversity.generated.Course courseGenerated) {
-        this.courseCode = courseGenerated.getCourseCode();
-        this.idCourse = courseGenerated.getIdCourse();
-        this.name = courseGenerated.getName();
-        this.lecturer = courseGenerated.getLecturer();
+        setCourseCode(courseGenerated.getCourseCode());
+        setIdCourse(courseGenerated.getIdCourse());
+        setName(courseGenerated.getName());
+        setLecturer(courseGenerated.getLecturer());
     }
 
     
@@ -66,6 +66,9 @@ public class Course {
      *     
      */
     public void setIdCourse(BigInteger value) {
+        if (value == null || value.compareTo(BigInteger.ZERO) < 0) {
+            throw new IllegalArgumentException("Can be positive only");
+        }
         this.idCourse = value;
     }
 
