@@ -14,10 +14,10 @@ public class Grade {
     protected BigInteger studentCode;
 
     public Grade(ee.knowituniversity.generated.Grade grade) {
-        this.idCourse = grade.getIdCourse();
-        this.idGrade = grade.getIdGrade();
-        this.gradeValue = grade.getGradeValue();
-        this.studentCode = grade.getStudentCode();
+        setIdCourse(grade.getIdCourse());
+        setIdGrade(grade.getIdGrade());
+        setGradeValue(grade.getGradeValue());
+        setStudentCode(grade.getStudentCode());
     }
     
     
@@ -34,7 +34,7 @@ public class Grade {
      *     {@link BigInteger }
      *     
      */
-    public void setIdGrade(BigInteger value) {
+    public void setIdGrade(BigInteger value) { 
         this.idGrade = value;
     }
 
